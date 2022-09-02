@@ -1,11 +1,11 @@
 public class Mutation {
     public async Task<SaveActivityPayload> SaveActivity(
-        [Service] Database db,    
+        [Service] ActivityService service,    
         SaveActivityInput input
-    ) => await db.SaveActivity(input);
+    ) => await service.SaveActivity(input);
 
     public async Task<SaveActivityPayload> RemoveActivity(
-        [Service] Database db,
+        [Service] ActivityService context,
         RemoveActivityInput input
-    ) => await db.RemoveActivity(input);
+    ) => await context.RemoveActivity(input);
 }

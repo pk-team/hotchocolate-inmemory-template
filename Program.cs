@@ -3,7 +3,8 @@
 builder.Services
     .AddCors(options => options.AddDefaultPolicy(
         policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()))
-    .AddSingleton<Database>()
+    .AddSingleton<AppDbContext>()
+    .AddScoped<ActivityService>()
     .AddGraphQLServer()
     .AddQueryType<Query>()
     .AddMutationType<Mutation>();
