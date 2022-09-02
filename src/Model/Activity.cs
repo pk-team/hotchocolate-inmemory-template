@@ -1,6 +1,9 @@
-public class Activity {
-    public Guid Id { get; set; } = Guid.NewGuid();
+using System.Security;
+
+namespace App.Model;
+
+public class Activity : EntityBase {
     public string Title { get; set; } = "";
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-    public DateTime? RemovedAt { get; set; }
+    public List<Label> Labels { get; set; } = new List<Label>();
+
 }

@@ -5,10 +5,14 @@ builder.Services
         policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()))
     .AddSingleton<AppDbContext>()
     .AddScoped<ActivityService>()
+    .AddScoped<LabelService>()
+
+    // grapqhql server
     .AddGraphQLServer()
     .AddQueryType<Query>()
     .AddMutationType<Mutation>();
-
+    
+// build
 var app = builder.Build();
 
 app.UseCors();

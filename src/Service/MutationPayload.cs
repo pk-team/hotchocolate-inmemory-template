@@ -5,7 +5,6 @@ public interface IMutationPayload {
     public ICollection<Error> Errors { get; set; } 
 }
 
-
 public class Error {
 
     public Error(string message) {
@@ -15,7 +14,7 @@ public class Error {
 }
 
 public static class ErrorExtension {
-    public static void AddError(this ICollection<Error> self, string message) {
+    public static void Add(this ICollection<Error> self, string message) {
         self.Add(new Error(message));
     }
 }
