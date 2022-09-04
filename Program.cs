@@ -10,13 +10,16 @@ builder.Services
     // grapqhql server
     .AddGraphQLServer()
     .AddQueryType<Query>()
-    .AddMutationType<Mutation>();
+    .AddMutationType<Mutation>()
+    .AddSubscriptionType<Subscription>()
+    .AddInMemorySubscriptions();
     
 // build
 var app = builder.Build();
 
 app.UseCors();
-app.MapGet("/", () => "Hello World");
+app.UseWebSockets();
 app.MapGraphQL();
+app.MapGet("/", () => "Hello World");
 
 app.Run();
