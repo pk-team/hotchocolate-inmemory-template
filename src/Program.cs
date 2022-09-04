@@ -12,7 +12,8 @@ builder.Services
     .AddQueryType<Query>()
     .AddMutationType<Mutation>()
     .AddSubscriptionType<Subscription>()
-    .AddInMemorySubscriptions();
+    .AddInMemorySubscriptions()
+    .InitializeOnStartup();
     
 // build
 var app = builder.Build();
