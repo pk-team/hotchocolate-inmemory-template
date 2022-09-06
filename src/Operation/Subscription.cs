@@ -9,8 +9,8 @@ public class Subscription {
     }
 
     [Subscribe]
-    public SaveLabelProps LabelSaved(
-        [EventMessage] SaveLabelProps label 
+    public MutateLabelProps LabelSaved(
+        [EventMessage] MutateLabelProps label 
     ) {
         Console.WriteLine("label saved " + label.Name);
         return label;
